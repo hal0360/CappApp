@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CatApp.MainPage">
+
+    <StackLayout Margin="20">
+        <ListView ItemsSource="{Binding Cats}" RowHeight="100">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid Padding="0">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto" />
+                                <RowDefinition Height="Auto" />
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="Auto" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.RowSpan="4" 
+                                   Source="{Binding url}" 
+                                   Aspect="AspectFill"
+                                   HeightRequest="100" 
+                                   WidthRequest="100" />
+                            <Label Grid.Column="1" 
+                                   Text="{Binding id}" 
+                                   FontAttributes="Bold" />
+                      
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button  Margin="6,18,6,0"
+                x:Name="LoginButton"
+                Clicked="Refresh_Clicked"
+                Text="Refesh Data" 
+                HorizontalOptions="FillAndExpand"/>
+    </StackLayout>
+
+</ContentPage>
